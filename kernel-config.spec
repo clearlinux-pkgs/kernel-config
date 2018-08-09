@@ -1,12 +1,16 @@
 Name:           kernel-config
 Version:        1
-Release:        1
+Release:        2
 License:        GPL-2.0
 Summary:        Linux kernel configuration common fragments
 Group:          kernel
 Source0:        apply-kconfig
-Source1:        base-4.17
-Source2:        mandatory-4.17
+Source1:        base-4.14
+Source2:        mandatory-4.14
+Source3:        base-4.17
+Source4:        mandatory-4.17
+
+%description
 
 %description
 Kernel configuration common fragments
@@ -17,6 +21,8 @@ mkdir -p bin
 cp %{SOURCE0} bin/
 cp %{SOURCE1} configs/
 cp %{SOURCE2} configs/
+cp %{SOURCE3} configs/
+cp %{SOURCE4} configs/
 
 %build
 
