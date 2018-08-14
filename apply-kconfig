@@ -7,6 +7,8 @@ cd ${kpath}
 # Get the kernel's version string
 kver=$(make kernelversion)
 
+echo Generating config for kernel $kver
+
 FIRST_FRAGMENTS=()
 
 # Mandatory fragments are applied last, to take precedence
@@ -20,14 +22,19 @@ for fragment in /usr/share/kernel-config/*; do
 	if [[ ${kver} != ${kver#${vermatch}} ]]; then
 
 		if [[ ${fragment%%-*} == "mandatory" ]]; then
+			echo Adding mandatory fragment $fragment
 			MANDATORY_FRAGMENTS+=($fragment)
 		else
+			echo Adding initial fragment $fragment
 			FIRST_FRAGMENTS+=($fragment)
 		fi
 	fi
 done
 
+echo Merging "${FIRST_FRAGMENTS[@]}" "$@" "${MANDATORY_FRAGMENTS[@]}"
 ./scripts/kconfig/merge_config.sh "${FIRST_FRAGMENTS[@]}" "$@" "${MANDATORY_FRAGMENTS[@]}"
+
+echo Tagging generated config
 echo >> .config
 echo "# kernel-config sources:" >> .config
 grep -h "FILEVER" "${FIRST_FRAGMENTS[@]}" "${MANDATORY_FRAGMENTS[@]}" >> .config
