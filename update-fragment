@@ -1,0 +1,53 @@
+#!/bin/bash -e
+
+# Attempts to build a new config fragment for a new kernel version.
+# make olddefconfig with prior config
+# diff generated config against current base config
+
+# Enter the kernel build directory
+kpath=$(find /builddir/build/BUILD -type f -name Makefile -printf "%h\n" | sort | head -1)
+cd ${kpath}
+
+# Get the kernel's version string
+kver=$(make kernelversion)
+
+echo Generating fragment for kernel $kver
+
+FIRST_FRAGMENTS=()
+
+# Mandatory fragments will not be used in this process, so we'll sort them out
+MANDATORY_FRAGMENTS=()
+
+# Find best match of config fragments
+for fragment in /usr/share/kernel-config/*; do
+	vermatch=${fragment##*-}
+
+	# Check whether vermatch is a substring of kernel version
+	if [[ ${kver} != ${kver#${vermatch}} ]]; then
+
+		if [[ ${fragment%%-*} == "mandatory" ]]; then
+			echo Adding mandatory fragment $fragment
+			MANDATORY_FRAGMENTS+=($fragment)
+		else
+			echo Adding initial fragment $fragment
+			FIRST_FRAGMENTS+=($fragment)
+		fi
+	fi
+done
+
+if [ "${FIRST_FRAGMENTS}" == "" ]; then
+	echo "No current base fragment(s) found. These must be created first."
+	exit 1
+fi
+
+echo "Updating config (olddefconfig)"
+cp "$@" .config
+make olddefconfig
+
+echo "Merging base config fragment(s)"
+BASECONFDIR=$(mktemp -d)
+mkdir -p ${BASECONFDIR}
+./scripts/kconfig/merge_config.sh -m -O ${BASECONFDIR} "${FIRST_FRAGMENTS[@]}"
+
+echo "Generating fragment from base"
+./scripts/diffconfig -m ${BASECONFDIR}/.config .config > .fragment
