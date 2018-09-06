@@ -20,8 +20,8 @@ for fragment in /usr/share/kernel-config/*; do
 
 	# Check whether vermatch is a substring of kernel version
 	if [[ ${kver} != ${kver#${vermatch}} ]]; then
-
-		if [[ ${fragment%%-*} == "mandatory" ]]; then
+		filename=$(basename ${fragment})
+		if [[ ${filename%%-*} == "mandatory" ]]; then
 			echo Adding mandatory fragment $fragment
 			MANDATORY_FRAGMENTS+=($fragment)
 		else

@@ -1,6 +1,6 @@
 Name:           kernel-config
-Version:        2
-Release:        7
+Version:        3
+Release:        8
 License:        GPL-2.0
 Summary:        Linux kernel configuration common fragments
 Group:          kernel

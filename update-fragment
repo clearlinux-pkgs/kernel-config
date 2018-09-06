@@ -24,9 +24,9 @@ for fragment in /usr/share/kernel-config/*; do
 
 	# Check whether vermatch is a substring of kernel version
 	if [[ ${kver} != ${kver#${vermatch}} ]]; then
-
-		if [[ ${fragment%%-*} == "mandatory" ]]; then
-			echo Adding mandatory fragment $fragment
+		filename=$(basename ${fragment})
+		if [[ ${filename%%-*} == "mandatory" ]]; then
+			echo Skipping mandatory fragment $fragment
 			MANDATORY_FRAGMENTS+=($fragment)
 		else
 			echo Adding initial fragment $fragment
