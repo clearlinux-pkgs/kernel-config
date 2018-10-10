@@ -1,6 +1,6 @@
 Name:           kernel-config
 Version:        3
-Release:        9
+Release:        10
 License:        GPL-2.0
 Summary:        Linux kernel configuration common fragments
 Group:          kernel
@@ -31,6 +31,8 @@ cp %{SOURCE4} configs/
 cp %{SOURCE5} configs/
 cp %{SOURCE6} configs/
 cp %{SOURCE7} configs/
+cp %{SOURCE8} configs/
+cp %{SOURCE9} configs/
 
 %build
 
