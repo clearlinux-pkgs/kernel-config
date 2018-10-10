@@ -1,6 +1,6 @@
 Name:           kernel-config
 Version:        3
-Release:        8
+Release:        9
 License:        GPL-2.0
 Summary:        Linux kernel configuration common fragments
 Group:          kernel
@@ -12,6 +12,8 @@ Source4:        base-4.17
 Source5:        mandatory-4.17
 Source6:        base-4.18
 Source7:        mandatory-4.18
+Source8:        base-4.19
+Source9:        mandatory-4.19
 
 %description
 
