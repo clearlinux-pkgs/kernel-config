@@ -91,3 +91,6 @@ CONFIG_PAGE_TABLE_ISOLATION=y
 
 # Unused dangerous option
 # CONFIG_MODIFY_LDT_SYSCALL is not set
+
+# KASLR break
+# CONFIG_DRM_FBDEV_LEAK_PHYS_SMEM is not set
