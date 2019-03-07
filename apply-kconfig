@@ -36,5 +36,6 @@ echo Merging "${FIRST_FRAGMENTS[@]}" "$@" "${MANDATORY_FRAGMENTS[@]}"
 
 echo Tagging generated config
 echo >> .config
+echo >> .config
 echo "# kernel-config sources:" >> .config
 grep -h "FILEVER" "${FIRST_FRAGMENTS[@]}" "${MANDATORY_FRAGMENTS[@]}" >> .config
