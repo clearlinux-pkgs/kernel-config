@@ -16,6 +16,8 @@ Source8:        base-4.19
 Source9:        mandatory-4.19
 Source10:        base-4.20
 Source11:        mandatory-4.20
+Source12:        base-5.0
+Source13:        mandatory-5.0
 
 %description
 
@@ -37,6 +39,8 @@ cp %{SOURCE8} configs/
 cp %{SOURCE9} configs/
 cp %{SOURCE10} configs/
 cp %{SOURCE11} configs/
+cp %{SOURCE12} configs/
+cp %{SOURCE13} configs/
 
 %build
 
