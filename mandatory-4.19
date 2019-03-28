@@ -6,7 +6,7 @@ CONFIG_RANDOMIZE_MEMORY=y
 CONFIG_STRICT_KERNEL_RWX=y
 
 # Stack Protector is for buffer overflow detection and hardening
-CONFIG_CC_STACKPROTECTOR=y
+CONFIG_STACKPROTECTOR=y
 
 # /dev/mem is dangerous and has no legitimate users anymore
 # CONFIG_DEVMEM is not set
