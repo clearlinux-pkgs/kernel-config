@@ -91,3 +91,6 @@ CONFIG_PAGE_TABLE_ISOLATION=y
 
 # Unused dangerous option
 # CONFIG_MODIFY_LDT_SYSCALL is not set
+
+# Avoid kernel memory address exposures via dmesg.
+CONFIG_SECURITY_DMESG_RESTRICT=y
