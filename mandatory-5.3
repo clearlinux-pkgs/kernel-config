@@ -1,0 +1,102 @@
+# KASLR is required as a basic security hardening
+CONFIG_RANDOMIZE_BASE=y
+CONFIG_RANDOMIZE_MEMORY=y
+
+# NX is important for buffer overflow exploit hardening
+CONFIG_STRICT_KERNEL_RWX=y
+
+# Stack Protector is for buffer overflow detection and hardening
+CONFIG_STACKPROTECTOR=y
+
+# /dev/mem is dangerous and has no legitimate users anymore
+# CONFIG_DEVMEM is not set
+
+# /dev/mem is dangerous and access must be strictly limited
+CONFIG_STRICT_DEVMEM=y
+CONFIG_IO_STRICT_DEVMEM=y
+
+# Needed to protect against targeted corruption by rootkits
+CONFIG_DEBUG_CREDENTIALS=y
+CONFIG_DEBUG_NOTIFIERS=y
+CONFIG_DEBUG_LIST=y
+CONFIG_DEBUG_SG=y
+CONFIG_SCHED_STACK_END_CHECK=y
+
+# Needed to protect against Spectre V2
+CONFIG_RETPOLINE=y
+
+# Seccomp is a security feature needed by systemd
+CONFIG_SECCOMP=y
+CONFIG_SECCOMP_FILTER=y
+
+# Protect against ioctl buffer overflows
+CONFIG_HARDENED_USERCOPY=y
+# CONFIG_HARDENED_USERCOPY_FALLBACK is not set
+
+# Harden the slab free list with randomization
+CONFIG_SLAB_FREELIST_RANDOM=y
+CONFIG_SLAB_FREELIST_HARDENED=y
+
+# Guard pages for kernel stacks
+CONFIG_VMAP_STACK=y
+
+# Perform extensive checks on reference counting
+CONFIG_REFCOUNT_FULL=y
+
+# Check for memory copies that might overflow a structure in str*() and mem*() functions both at build-time and run-time.
+CONFIG_FORTIFY_SOURCE=y
+
+# Dangerous; enabling this allows direct physical memory writing
+# CONFIG_ACPI_CUSTOM_METHOD is not set
+
+# Dangerous; enabling this disables brk ASLR
+# CONFIG_COMPAT_BRK is not set
+
+# Dangerous; enabling this allows direct kernel memory writing.
+# CONFIG_DEVKMEM is not set
+
+# Dangerous; exposes kernel text image layout
+# CONFIG_PROC_KCORE is not set
+
+# Dangerous; enabling this disables VDSO ASLR
+# CONFIG_COMPAT_VDSO is not set
+
+# Prior to v4.1, assists heap memory attacks; best to keep interface disabled
+# CONFIG_INET_DIAG is not set
+
+# Use the modern PTY interface (devpts) only
+# CONFIG_LEGACY_PTYS is not set
+
+# Ensure modules have NX enabled
+CONFIG_DEBUG_SET_MODULE_RONX=y
+CONFIG_STRICT_MODULE_RWX=y
+
+# Signing of kernel modules is required
+CONFIG_MODULE_SIG=y
+
+# Enforce module signing
+CONFIG_MODULE_SIG_FORCE=y
+
+# Use SHA512 for kernel module signing
+CONFIG_MODULE_SIG_SHA512=y
+
+# Modern libc no longer needs a fixed-position mapping in userspace, remove it as a possible target.
+CONFIG_LEGACY_VSYSCALL_NONE=y
+
+# Enable Kernel Page Table Isolation to remove an entire class of cache timing side-channels.
+CONFIG_PAGE_TABLE_ISOLATION=y
+
+# X32 is rarely used and provides only attack surface
+# CONFIG_X86_X32 is not set
+
+# Unused dangerous option
+# CONFIG_MODIFY_LDT_SYSCALL is not set
+
+# KASLR break
+# CONFIG_DRM_FBDEV_LEAK_PHYS_SMEM is not set
+
+# Avoid kernel memory address exposures via dmesg.
+CONFIG_SECURITY_DMESG_RESTRICT=y
+
+# Page allocator randomization
+CONFIG_SHUFFLE_PAGE_ALLOCATOR=y
