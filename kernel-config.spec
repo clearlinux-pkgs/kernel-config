@@ -1,6 +1,6 @@
 Name:           kernel-config
 Version:        4
-Release:        37
+Release:        38
 License:        GPL-2.0
 Summary:        Linux kernel configuration common fragments
 Group:          kernel
