@@ -26,6 +26,8 @@ Source18:       base-5.3
 Source19:       mandatory-5.3
 Source20:       base-5.4
 Source21:       mandatory-5.4
+Source22:       base-5.5
+Source23:       mandatory-5.5
 
 %description
 Kernel configuration common fragments
@@ -55,6 +57,8 @@ cp %{SOURCE18} configs/
 cp %{SOURCE19} configs/
 cp %{SOURCE20} configs/
 cp %{SOURCE21} configs/
+cp %{SOURCE22} configs/
+cp %{SOURCE23} configs/
 
 %build
 
