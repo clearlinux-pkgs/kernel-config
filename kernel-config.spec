@@ -1,6 +1,6 @@
 Name:           kernel-config
 Version:        4
-Release:        40
+Release:        41
 License:        GPL-2.0
 Summary:        Linux kernel configuration common fragments
 Group:          kernel
@@ -28,6 +28,8 @@ Source20:       base-5.4
 Source21:       mandatory-5.4
 Source22:       base-5.5
 Source23:       mandatory-5.5
+Source24:       base-5.6
+Source25:       mandatory-5.6
 
 %description
 Kernel configuration common fragments
@@ -59,6 +61,8 @@ cp %{SOURCE20} configs/
 cp %{SOURCE21} configs/
 cp %{SOURCE22} configs/
 cp %{SOURCE23} configs/
+cp %{SOURCE24} configs/
+cp %{SOURCE25} configs/
 
 %build
 
