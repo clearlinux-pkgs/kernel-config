@@ -22,8 +22,11 @@ MANDATORY_FRAGMENTS=()
 for fragment in /usr/share/kernel-config/*; do
 	vermatch=${fragment##*-}
 
-	# Check whether vermatch is a substring of kernel version
-	if [[ ${kver} != ${kver#${vermatch}} ]]; then
+	# Check whether vermatch is an exact match to kernel version
+	# OR a substring that doesn't split a number --
+	# kernel 5.10.4 should match configs 5.10.4 and 5.10, but NOT 5.1
+	if [[ ${kver} == ${vermatch} ]] ||
+		[[ ${kver} =~ ^${vermatch}[^0-9] ]]; then
 		filename=$(basename ${fragment})
 		if [[ ${filename%%-*} == "mandatory" ]]; then
 			echo Skipping mandatory fragment $fragment
