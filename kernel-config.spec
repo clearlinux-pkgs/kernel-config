@@ -38,6 +38,8 @@ Source30:       base-5.9
 Source31:       mandatory-5.9
 Source32:       base-5.10
 Source33:       mandatory-5.10
+Source34:       base-5.12
+Source35:       mandatory-5.12
 
 %description
 Kernel configuration common fragments
@@ -79,6 +81,8 @@ cp %{SOURCE30} configs/
 cp %{SOURCE31} configs/
 cp %{SOURCE32} configs/
 cp %{SOURCE33} configs/
+cp %{SOURCE34} configs/
+cp %{SOURCE35} configs/
 
 %build
 
