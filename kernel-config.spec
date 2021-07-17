@@ -1,6 +1,6 @@
 Name:           kernel-config
 Version:        5
-Release:        50
+Release:        51
 License:        GPL-2.0
 Summary:        Linux kernel configuration common fragments
 Group:          kernel
@@ -42,6 +42,8 @@ Source34:       base-5.12
 Source35:       mandatory-5.12
 Source36:       base-5.13
 Source37:       mandatory-5.13
+Source38:       base-5.14
+Source39:       mandatory-5.14
 
 %description
 Kernel configuration common fragments
@@ -87,6 +89,8 @@ cp %{SOURCE34} configs/
 cp %{SOURCE35} configs/
 cp %{SOURCE36} configs/
 cp %{SOURCE37} configs/
+cp %{SOURCE38} configs/
+cp %{SOURCE39} configs/
 
 %build
 
