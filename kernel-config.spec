@@ -46,6 +46,8 @@ Source38:       base-5.14
 Source39:       mandatory-5.14
 Source40:       base-5.15
 Source41:       mandatory-5.15
+Source42:       base-5.16
+Source43:       mandatory-5.16
 
 %description
 Kernel configuration common fragments
@@ -95,6 +97,8 @@ cp %{SOURCE38} configs/
 cp %{SOURCE39} configs/
 cp %{SOURCE40} configs/
 cp %{SOURCE41} configs/
+cp %{SOURCE42} configs/
+cp %{SOURCE43} configs/
 
 %build
 
