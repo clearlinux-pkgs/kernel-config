@@ -60,6 +60,8 @@ Source52:       base-6.1
 Source53:       mandatory-6.1
 Source54:       base-6.2
 Source55:       mandatory-6.2
+Source56:       base-6.3
+Source57:       mandatory-6.3
 
 %description
 Kernel configuration common fragments
@@ -123,6 +125,8 @@ cp %{SOURCE52} configs/
 cp %{SOURCE53} configs/
 cp %{SOURCE54} configs/
 cp %{SOURCE55} configs/
+cp %{SOURCE56} configs/
+cp %{SOURCE57} configs/
 
 %build
 
