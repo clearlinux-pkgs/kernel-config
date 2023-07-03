@@ -127,6 +127,8 @@ cp %{SOURCE54} configs/
 cp %{SOURCE55} configs/
 cp %{SOURCE56} configs/
 cp %{SOURCE57} configs/
+cp %{SOURCE56} configs/base-6.4
+cp %{SOURCE57} configs/mandatory-6.4
 
 %build
 
