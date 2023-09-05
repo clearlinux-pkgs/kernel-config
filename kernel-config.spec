@@ -129,6 +129,8 @@ cp %{SOURCE56} configs/
 cp %{SOURCE57} configs/
 cp %{SOURCE56} configs/base-6.4
 cp %{SOURCE57} configs/mandatory-6.4
+cp %{SOURCE56} configs/base-6.5
+cp %{SOURCE57} configs/mandatory-6.5
 
 %build
 
